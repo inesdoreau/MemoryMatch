@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class CardController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class CardController : MonoBehaviour
 
     private bool isFlipped = false;
     private bool isMatched = false;
+
+    public bool isLocked = false;
 
     public bool IsFlipped
     {
@@ -41,6 +44,7 @@ public class CardController : MonoBehaviour
 
     public void SetMatched()
     {
+        isLocked = false;
         isMatched = true;
     }
 
@@ -48,7 +52,7 @@ public class CardController : MonoBehaviour
     {
         FlipCard(false);
     }
-    
+
     public void SetFrontFaceSprite(Sprite sprite)
     {
         frontFaceRenderer.sprite = sprite;
